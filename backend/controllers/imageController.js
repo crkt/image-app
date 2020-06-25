@@ -58,8 +58,9 @@ exports.getAllImages = async (req, res, next) => {
 exports.uploadImage = upload.single("photo");
 
 exports.createImageMetadata = async (req, res, next) => {
+  let name = fileNamePath(req.body.name)
   const doc = await ImageMetadata.create({
-    name: req.body.name,
+    name: name,
     path: `/img/${req.file.filename}`,
   });
 
