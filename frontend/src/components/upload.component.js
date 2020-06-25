@@ -10,7 +10,7 @@ export default class Upload extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const name = this.fileInput.current.files[0].name;
+        const name = this.fileInput.current.files[0].name.split(".").slice(0, -1).join(".");
         const image = this.fileInput.current.files[0];
 
         let data = new FormData();
