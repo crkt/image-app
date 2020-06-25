@@ -11,17 +11,16 @@ export default class Upload extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         const name = this.fileInput.current.files[0].name;
-        const image = this.fileInput.current.files;
+        const image = this.fileInput.current.files[0];
+
+        let data = new FormData();
+
+        data.append("name", name);
+        data.append("photo", image);
 
         const requestOptions = {
             method: "POST",
-            body: {
-                name: name,
-                photo: image
-            },
-            headers: {
-                "Content-Type": "multipart/form-data"
-            }
+            body: data
         }
 
         fetch("http://localhost:3002/images", requestOptions)
