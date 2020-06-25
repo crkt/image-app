@@ -24,6 +24,23 @@ function fileFilter(req, file, cb) {
   return cb(null, true);
 }
 
+function fileNamePath(name) {
+  let short = name.substring(0,10)
+    .replace(/ /g, "-")
+    .toLowerCase()
+    .replace(/å|ä/g, "a")
+    .replace(/ö/g, "o")
+
+  let date = new Date();
+  return short + "_" +
+    date.getFullYear() +
+    "0" + date.getMonth() +
+    date.getDate() +
+    date.getHours() +
+    date.getMinutes() +
+    date.getSeconds()
+ }
+
 const upload = multer({
   storage: multerStorage,
   fileFilter: fileFilter
