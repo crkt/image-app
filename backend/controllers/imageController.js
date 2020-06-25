@@ -13,8 +13,20 @@ const multerStorage = multer.diskStorage({
   },
 });
 
+/**
+ * Using the multers fileFilter to set what is allowed to upload to this web server.
+ * See: https://github.com/expressjs/multer
+ */
+function fileFilter(req, file, cb) {
+  if (!file.originalname.match(/\.(jpeg|png)$/)) {
+    return cb(new Error("Must pass a photo of file type: .jpeg or .png"))
+  }
+  return cb(null, true);
+}
+
 const upload = multer({
   storage: multerStorage,
+  fileFilter: fileFilter
 });
 
 exports.getAllImages = async (req, res, next) => {
