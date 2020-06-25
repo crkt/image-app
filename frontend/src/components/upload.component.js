@@ -20,7 +20,7 @@ export default class Upload extends React.Component {
                 photo: image
             },
             headers: {
-                "Content-Type": "multipart/formdata"
+                "Content-Type": "multipart/form-data"
             }
         }
 
