@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
-
-const API_ROOT_URL = process.env.API_ROOT_URL || "http://localhost:3002";
+import Upload from "./components/upload.component";
 
 function App() {
   return (
@@ -9,6 +8,7 @@ function App() {
       <header className="App-header">
         <h1>Image Uploading App</h1>
       </header>
+      <Upload></Upload>
     </div>
   );
 }
