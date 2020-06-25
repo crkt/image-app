@@ -8,24 +8,26 @@ export default class Upload extends React.Component {
         this.fileInput = React.createRef();
     }
 
-    handleChange(event) {
-        this.setState({images: event.target.vale})
-    }
-
     handleSubmit(event) {
-        let requestOptions = {
-            method: "POST",
-            body: this.fileInput.current.files
-        }
         event.preventDefault();
+        const name = this.fileInput.current.files[0].name;
+        const image = this.fileInput.current.files;
+
+        const requestOptions = {
+            method: "POST",
+            body: {
+                name: name,
+                image: image
+            },
+            headers: {
+                "Content-Type": "multipart/formdata"
+            }
+        }
+
         fetch("http://localhost:3002/images", requestOptions)
         .then(response => console.log(response))
         .catch(error => console.log(`Error: ${error}`));        
     }
-
-    state = { 
-        images: []
-    }    
 
     render() {
         return <form onSubmit={this.handleSubmit}>
