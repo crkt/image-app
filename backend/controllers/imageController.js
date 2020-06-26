@@ -106,7 +106,7 @@ exports.createImageMetadata = async (req, res, next) => {
   let name = fileName(req.body.name)
   const doc = await ImageMetadata.create({
     name: name,
-    path: `/img/${req.file.filename}`,
+    path: `/img/${fileNameWithExtension(req.file, name)}`,
   });
 
   if (!doc) {
