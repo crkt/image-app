@@ -8,7 +8,6 @@ export default class Upload extends React.Component {
             name: ""
         }
         this.fileInput = React.createRef();
-        this.form = React.createRef();
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
     }
