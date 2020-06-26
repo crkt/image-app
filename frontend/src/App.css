@@ -1,13 +1,5 @@
 .App {
   text-align: center;
-}
-
-.App-image {
-  height: 300px;
-  border-radius: 50%;
-}
-
-.App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -18,6 +10,29 @@
   color: white;
 }
 
+.App-image {
+  height: 300px;
+  border-radius: 50%;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+
+#upload-component {  
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+}
+
+#upload-component label {
+  display: block;
+  text-align: left;
+}
+
+#upload-component #file-input {
+  height: 100px;  
 }
